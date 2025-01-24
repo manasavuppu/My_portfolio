@@ -119,10 +119,38 @@ if show_sidebar:
         )
 else:
     # If sidebar is hidden, use dropdown for navigation
-    tabs = st.selectbox(
-        "Navigate to:",
-        ["About Me", "Portfolio", "Interests", "Why hire me", "Contact"]
-    )
+    st.markdown("""
+    <style>
+        .nav-bar {
+            display: flex;
+            justify-content: center;
+            gap: 15px; /* Spacing between items */
+            margin-top: 20px;
+        }
+        .nav-bar-item {
+            padding: 10px 20px;
+            background-color: #ffe078;
+            color: #101010;
+            border: 2px solid #023047;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .nav-bar-item:hover {
+            background-color: #fb8500; /* Hover color */
+            color: white; /* Hover text color */
+        }
+        </style>
+        <div class="nav-bar">
+            <div class="nav-bar-item" onclick="window.location.href='#about-me'">About Me</div>
+            <div class="nav-bar-item" onclick="window.location.href='#portfolio'">Portfolio</div>
+            <div class="nav-bar-item" onclick="window.location.href='#interests'">Interests</div>
+            <div class="nav-bar-item" onclick="window.location.href='#why-hire-me'">Why hire me</div>
+            <div class="nav-bar-item" onclick="window.location.href='#contact'">Contact</div>
+        </div>
+    """, unsafe_allow_html=True)
 
 # Tabs Logic
 if tabs == "About Me":
