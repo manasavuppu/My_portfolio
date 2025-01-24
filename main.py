@@ -43,6 +43,13 @@ st.markdown("""
             color: #101010 !important; /* Text color for the selected option */
             font-weight: bold;
         }
+        div[data-baseweb="radio"] > div > label {
+            color: #101010 !important; /* Ensures label text is dark gray */
+        }
+        /* Ensure the text in all input elements is dark gray */
+        input[type="radio"] + div {
+            color: #101010 !important;
+        }
         /* Sidebar toggle button */
         .sidebar-toggle {
             position: fixed;
@@ -93,6 +100,9 @@ st.markdown("""
             }
             div[data-baseweb="radio"] > div:hover {
                 background-color: #fb8500;
+            }
+            div[data-baseweb="radio"] > div > label {
+                color: #101010 !important;
             }
         }
     </style>
