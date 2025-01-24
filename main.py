@@ -13,39 +13,43 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Apply custom CSS for collapsibility and responsive design
+# Apply custom CSS for collapsibility, responsive design, and text color fix
 st.markdown("""
     <style>
         /* Background color for the app */
         .stApp {
             background-color: #fdfd96; /* Brighter yellow */
+            color: #101010 !important; /* Ensure text remains black */
         }
         /* Sidebar styling */
         section[data-testid="stSidebar"] {
             background-color: #ffe078; /* Light yellow background */
             padding: 20px; /* Add padding for spacing */
         }
-        /* Sidebar collapsibility on mobile screens */
-        @media (max-width: 768px) {
-            section[data-testid="stSidebar"] {
-                display: none; /* Hide sidebar on small screens */
-            }
+        section[data-testid="stSidebar"] h1, 
+        section[data-testid="stSidebar"] h2, 
+        section[data-testid="stSidebar"] h3, 
+        section[data-testid="stSidebar"] h4, 
+        section[data-testid="stSidebar"] h5, 
+        section[data-testid="stSidebar"] p, 
+        section[data-testid="stSidebar"] label {
+            color: #023047 !important; /* Dark blue for sidebar text */
         }
         /* Header styling */
         .header-main {
-            color: #101010; /* Black for Hello there! */
+            color: #101010 !important; /* Black for Hello there! */
             font-size: 50px;
             font-weight: bold;
             text-align: center;
         }
         .header-name {
-            color: #808000; /* Olive for name */
+            color: #808000 !important; /* Olive for name */
             font-size: 50px;
             font-weight: bold;
             text-align: center;
         }
         .dynamic-keyword {
-            color: #fb8500; /* Orange for animated keywords */
+            color: #fb8500 !important; /* Orange for animated keywords */
             font-style: italic;
             font-size: 36px;
             text-align: center;
@@ -55,8 +59,17 @@ st.markdown("""
         .about-me-text {
             text-align: justify;
             font-size: 20px;
-            color: #101010;
+            color: #101010 !important; /* Ensure black text */
             line-height: 1.8;
+        }
+        /* Responsive fix for mobile screens */
+        @media (max-width: 768px) {
+            section[data-testid="stSidebar"] {
+                display: none; /* Hide sidebar on small screens */
+            }
+            html, body, .stApp {
+                color: #101010 !important; /* Ensure text stays black on mobile */
+            }
         }
     </style>
 """, unsafe_allow_html=True)
@@ -134,7 +147,7 @@ if tabs == "About Me":
 
     # About Me Text
     st.markdown("""
-        <div style="text-align: justify; font-size: 16px; color: #101010; line-height: 1.8; padding: 0; margin: 0;">
+        <div style="text-align: justify; font-size: 16px; color: #101010 !important; line-height: 1.8; padding: 0; margin: 0;">
         
         I am Manasa, but you can call me Minn—or perhaps, a Data Scientist!  
         My mission is to transform raw data into actionable insights that drive success and innovation for businesses.
