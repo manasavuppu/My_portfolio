@@ -1,4 +1,4 @@
-# 🌟 **Manasa Vuppu's Portfolio** 🌟
+# **Manasa Vuppu's Portfolio** 
 
 🚀 Check out the live portfolio here: 
 [VSM Portfolio](https://vsm-portfolio.streamlit.app/)
