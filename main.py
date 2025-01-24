@@ -31,17 +31,18 @@ st.markdown("""
             text-align: left;
             margin-bottom: 20px;
         }
-        /* Styling for the radio buttons */
+        /* Styling for the radio buttons ("Navigate to") */
         div[data-baseweb="radio"] > div {
-            color: #101010 !important; /* Text color for all options */
+            color: #101010 !important; /* Text color for all radio options */
+            font-size: 18px; /* Ensure a readable font size */
         }
         div[data-baseweb="radio"] > div:hover {
             background-color: #fb8500; /* Hover background for options */
             color: white !important; /* Text color on hover */
         }
         div[data-baseweb="radio"] > div input:checked + div {
-            color: #101010 !important; /* Text color for the selected option */
-            font-weight: bold;
+            font-weight: bold; /* Bold text for selected option */
+            color: #101010 !important; /* Text color for selected option */
         }
         div[data-baseweb="radio"] > div > label {
             color: #101010 !important; /* Ensures label text is dark gray */
@@ -96,7 +97,7 @@ st.markdown("""
                 color: #101010 !important;
             }
             div[data-baseweb="radio"] > div {
-                color: #101010 !important;
+                color: #101010 !important; /* Ensure dark gray text on mobile */
             }
             div[data-baseweb="radio"] > div:hover {
                 background-color: #fb8500;
