@@ -33,11 +33,12 @@ st.markdown("""
         }
         /* Styling for the radio buttons ("Navigate to") */
         div[data-baseweb="radio"] > div {
+            background-color: transparent !important; /* Ensure transparent background */
             color: #101010 !important; /* Text color for all radio options */
-            font-size: 18px; /* Ensure a readable font size */
+            font-size: 18px; /* Ensure readable font size */
         }
         div[data-baseweb="radio"] > div:hover {
-            background-color: #fb8500; /* Hover background for options */
+            background-color: #fb8500 !important; /* Hover background for options */
             color: white !important; /* Text color on hover */
         }
         div[data-baseweb="radio"] > div input:checked + div {
@@ -46,6 +47,11 @@ st.markdown("""
         }
         div[data-baseweb="radio"] > div > label {
             color: #101010 !important; /* Ensures label text is dark gray */
+            font-size: 18px; /* Ensure consistent font size for labels */
+        }
+        /* Force all text and input states to remain dark gray */
+        div[data-testid="stMarkdownContainer"] label {
+            color: #101010 !important;
         }
         /* Ensure the text in all input elements is dark gray */
         input[type="radio"] + div {
