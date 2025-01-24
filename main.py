@@ -16,7 +16,7 @@ st.set_page_config(
 # Apply custom CSS for styling and responsive fixes
 st.markdown("""
     <style>
-        /* Ensure universal text color is dark gray */
+        /* Universal text color set to dark gray */
         html, body, .stApp {
             color: #101010 !important;
             background-color: #fdfd96; /* Brighter yellow */
@@ -24,6 +24,26 @@ st.markdown("""
         section[data-testid="stSidebar"] {
             background-color: #ffe078; /* Sidebar background color */
         }
+        .sidebar-title {
+            font-size: 26px; /* Increase font size */
+            font-weight: bold;
+            color: #101010; /* Dark gray */
+            text-align: left;
+            margin-bottom: 20px;
+        }
+        /* Styling for the radio buttons */
+        div[data-baseweb="radio"] > div {
+            color: #101010 !important; /* Text color for all options */
+        }
+        div[data-baseweb="radio"] > div:hover {
+            background-color: #fb8500; /* Hover background for options */
+            color: white !important; /* Text color on hover */
+        }
+        div[data-baseweb="radio"] > div input:checked + div {
+            color: #101010 !important; /* Text color for the selected option */
+            font-weight: bold;
+        }
+        /* Sidebar toggle button */
         .sidebar-toggle {
             position: fixed;
             top: 20px;
@@ -41,6 +61,7 @@ st.markdown("""
             background-color: #023047;
             color: #101010;
         }
+        /* Horizontal navigation bar */
         .nav-bar {
             display: flex;
             justify-content: center;
@@ -50,7 +71,7 @@ st.markdown("""
         .nav-bar-item {
             padding: 10px 20px;
             background-color: #ffe078;
-            color: #101010 !important; /* Ensure text stays dark gray */
+            color: #101010 !important;
             border: 2px solid #023047;
             border-radius: 5px;
             text-align: center;
@@ -62,18 +83,16 @@ st.markdown("""
             background-color: #fb8500;
             color: #101010 !important;
         }
-        .nav-bar-item:active {
-            background-color: #023047;
-            color: #101010 !important;
-        }
         /* Mobile-specific fixes */
         @media (max-width: 768px) {
             html, body, .stApp {
                 color: #101010 !important;
             }
-            .nav-bar-item {
-                background-color: #ffe078 !important;
-                color: #101010 !important; /* Ensure text is dark gray on mobile */
+            div[data-baseweb="radio"] > div {
+                color: #101010 !important;
+            }
+            div[data-baseweb="radio"] > div:hover {
+                background-color: #fb8500;
             }
         }
     </style>
@@ -97,17 +116,6 @@ toggle_button = st.markdown(
 # Show sidebar conditionally
 if st.session_state.sidebar_visible:
     with st.sidebar:
-        st.markdown("""
-            <style>
-                .sidebar-title {
-                    font-size: 26px; /* Increase font size */
-                    font-weight: bold;
-                    color: #023047;
-                    text-align: left;
-                    margin-bottom: 20px;
-                }
-            </style>
-        """, unsafe_allow_html=True)
         st.markdown("<div class='sidebar-title'>Know me Better Today! 🙌🏽</div>", unsafe_allow_html=True)
         tabs = st.radio(
             "Navigate to:",
