@@ -27,8 +27,8 @@ st.markdown("""
             top: 20px;
             left: 10px;
             background-color: #fb8500;
-            color: white;
-            font-size: 18px;
+            color: #101010;
+            font-size: 22px;
             padding: 10px 20px;
             border: none;
             border-radius: 5px;
@@ -52,12 +52,12 @@ st.markdown("""
             border-radius: 5px;
             text-align: center;
             font-weight: bold;
-            font-size: 16px;
+            font-size: 20px;
             cursor: pointer;
         }
         .nav-bar-item:hover {
             background-color: #fb8500;
-            color: white;
+            color: #101010;
         }
     </style>
 """, unsafe_allow_html=True)
