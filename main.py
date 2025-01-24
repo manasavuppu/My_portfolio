@@ -13,11 +13,12 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Apply custom CSS for styling and responsive fixes
+# Apply custom CSS for styling and text visibility on mobile
 st.markdown("""
     <style>
         .stApp {
             background-color: #fdfd96; /* Brighter yellow */
+            color: #101010 !important; /* Ensure text remains black */
         }
         .nav-bar {
             display: flex;
@@ -28,7 +29,7 @@ st.markdown("""
         .nav-bar-item {
             padding: 10px 20px;
             background-color: #ffe078;
-            color: #101010 !important; /* Ensure button text stays black */
+            color: #101010 !important; /* Ensure text color stays black */
             border: 2px solid #023047;
             border-radius: 5px;
             text-align: center;
@@ -43,17 +44,6 @@ st.markdown("""
         .nav-bar-item:active {
             background-color: #023047; /* Active state */
             color: white; /* Active text color */
-        }
-        /* Mobile-specific fixes */
-        @media (max-width: 768px) {
-            .nav-bar-item {
-                background-color: #ffe078 !important;
-                color: #101010 !important;
-            }
-            .nav-bar-item:hover {
-                background-color: #fb8500 !important;
-                color: white !important;
-            }
         }
     </style>
 """, unsafe_allow_html=True)
@@ -101,21 +91,21 @@ else:
 tabs = st.session_state.active_tab
 
 if tabs == "About Me":
-    st.markdown("<h1>About Me</h1>", unsafe_allow_html=True)
-    st.write("Welcome to the About Me section!")
+    st.title("About Me")
+    st.write("You are on the About Me page!")
 
 elif tabs == "Portfolio":
-    st.markdown("<h1>Portfolio</h1>", unsafe_allow_html=True)
+    st.title("Portfolio")
     show_portfolio()
 
 elif tabs == "Interests":
-    st.markdown("<h1>Interests</h1>", unsafe_allow_html=True)
+    st.title("Interests")
     show_interests()
 
 elif tabs == "Why hire me":
-    st.markdown("<h1>Why Hire Me?</h1>", unsafe_allow_html=True)
+    st.title("Why Hire Me?")
     show_cv()
 
 elif tabs == "Contact":
-    st.markdown("<h1>Contact Me</h1>", unsafe_allow_html=True)
+    st.title("Contact Me")
     contact_me()
