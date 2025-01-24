@@ -31,30 +31,31 @@ st.markdown("""
             text-align: left;
             margin-bottom: 20px;
         }
-        /* Styling for radio buttons */
-        div[data-baseweb="radio"] {
-            color: #101010 !important; /* Default text color */
-        }
+        /* Styling for the radio buttons ("Navigate to") */
         div[data-baseweb="radio"] > div {
-            color: #101010 !important; /* Option text */
-            font-size: 16px; /* Ensure readable font size */
+            background-color: transparent !important; /* Ensure transparent background */
+            color: #101010 !important; /* Text color for all radio options */
+            font-size: 18px; /* Ensure readable font size */
         }
         div[data-baseweb="radio"] > div:hover {
             background-color: #fb8500 !important; /* Hover background for options */
             color: white !important; /* Text color on hover */
         }
         div[data-baseweb="radio"] > div input:checked + div {
+            font-weight: bold; /* Bold text for selected option */
             color: #101010 !important; /* Text color for selected option */
-            font-weight: bold; /* Bold selected option */
         }
         div[data-baseweb="radio"] > div > label {
             color: #101010 !important; /* Ensures label text is dark gray */
+            font-size: 18px; /* Ensure consistent font size for labels */
         }
-        div[data-baseweb="radio"] > div > span {
-            color: #101010 !important; /* Span text dark gray */
-        }
+        /* Force all text and input states to remain dark gray */
         div[data-testid="stMarkdownContainer"] label {
-            color: #101010 !important; /* Label color */
+            color: #101010 !important;
+        }
+        /* Ensure the text in all input elements is dark gray */
+        input[type="radio"] + div {
+            color: #101010 !important;
         }
         /* Sidebar toggle button */
         .sidebar-toggle {
@@ -108,9 +109,6 @@ st.markdown("""
                 background-color: #fb8500;
             }
             div[data-baseweb="radio"] > div > label {
-                color: #101010 !important;
-            }
-            div[data-baseweb="radio"] > div > span {
                 color: #101010 !important;
             }
         }
