@@ -27,7 +27,7 @@ def contact_me():
             padding: 30px;
             border-radius: 20px;
             text-align: center;
-            color: white;
+            color: black;
             max-width: 400px;
             width: 100%;
             box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);

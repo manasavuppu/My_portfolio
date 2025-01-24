@@ -1,4 +1,10 @@
 import streamlit as st
+from PIL import Image
+import time
+from portfolio import show_portfolio
+from interests import show_interests
+from whyhireme import show_cv
+from contact import contact_me
 
 # Configure the page
 st.set_page_config(
@@ -7,41 +13,27 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-
-from PIL import Image
-import time
-from portfolio import show_portfolio
-from interests import show_interests
-from whyhireme import show_cv
-from contact import contact_me
-
-
-# Apply custom CSS for background, sidebar, and text styling
+# Apply custom CSS for collapsibility and responsive design
 st.markdown("""
     <style>
-        /* Set background color */
+        /* Background color for the app */
         .stApp {
             background-color: #fdfd96; /* Brighter yellow */
         }
         /* Sidebar styling */
         section[data-testid="stSidebar"] {
-            background-color: #ffe078; /* Light gray background */
+            background-color: #ffe078; /* Light yellow background */
             padding: 20px; /* Add padding for spacing */
         }
-        /* Increase font size for sidebar content */
-        section[data-testid="stSidebar"] h1, 
-        section[data-testid="stSidebar"] h2, 
-        section[data-testid="stSidebar"] h3, 
-        section[data-testid="stSidebar"] h4, 
-        section[data-testid="stSidebar"] h5, 
-        section[data-testid="stSidebar"] p, 
-        section[data-testid="stSidebar"] label {
-            font-size: 18px; /* Increased font size */
-            color: #023047; /* Dark blue text */
+        /* Sidebar collapsibility on mobile screens */
+        @media (max-width: 768px) {
+            section[data-testid="stSidebar"] {
+                display: none; /* Hide sidebar on small screens */
+            }
         }
         /* Header styling */
         .header-main {
-            color: #000000; /* Black for Hello there! */
+            color: #101010; /* Black for Hello there! */
             font-size: 50px;
             font-weight: bold;
             text-align: center;
@@ -59,17 +51,17 @@ st.markdown("""
             text-align: center;
             font-weight: bold;
         }
-        /* Text styling */
+        /* About Me Text Styling */
         .about-me-text {
             text-align: justify;
             font-size: 20px;
-            color: #000000;
+            color: #101010;
             line-height: 1.8;
         }
     </style>
 """, unsafe_allow_html=True)
 
-# Cache functions to optimize loading of images and content
+# Cache functions to optimize image loading
 @st.cache_data
 def load_image(image_path):
     """Load and return an image using Pillow."""
@@ -81,48 +73,55 @@ def get_keywords():
     return [
         "Machine Learning", 
         "Artificial Intelligence",
-        "Data Visualisation", 
+        "Data Visualization", 
         "Business Intelligence", 
         "Deep Learning",
         "Generative AI"
     ]
 
-# Load images with caching
+# Load images
 profile_image = load_image("me.jpeg")
 
+# Collapsible Sidebar for Desktop
+show_sidebar = st.checkbox("Show Sidebar", value=True)
 
-# Sidebar with tabs
-with st.sidebar:
-    st.markdown("""
-        <style>
-            .sidebar-title {
-                font-size: 26px; /* Increase font size */
-                font-weight: bold; /* Make it bold */
-                color: #023047; /* Set dark blue color */
-                text-align: left; /* Left align the text */
-                margin-bottom: 20px; /* Add spacing below */
-            }
-        </style>
-    """, unsafe_allow_html=True)
-    st.markdown("<div class='sidebar-title'>Know me Better Today!🙌🏽</div>", unsafe_allow_html=True)
-    tabs = st.radio(
+if show_sidebar:
+    with st.sidebar:
+        st.markdown("""
+            <style>
+                .sidebar-title {
+                    font-size: 26px; /* Increase font size */
+                    font-weight: bold; /* Make it bold */
+                    color: #023047; /* Set dark blue color */
+                    text-align: left; /* Left align the text */
+                    margin-bottom: 20px; /* Add spacing below */
+                }
+            </style>
+        """, unsafe_allow_html=True)
+        st.markdown("<div class='sidebar-title'>Know me Better Today! 🙌🏽</div>", unsafe_allow_html=True)
+        tabs = st.radio(
+            "Navigate to:",
+            ["About Me", "Portfolio", "Interests", "Why hire me", "Contact"],
+            index=0
+        )
+else:
+    # If sidebar is hidden, use dropdown for navigation
+    tabs = st.selectbox(
         "Navigate to:",
-        ["About Me", "Portfolio", "Interests", "Why hire me", "Contact"],
-        index=0
+        ["About Me", "Portfolio", "Interests", "Why hire me", "Contact"]
     )
 
-# "About Me" Tab
+# Tabs Logic
 if tabs == "About Me":
-    # Header Section
     st.markdown("<h1 class='header-main'>Hello there! 👋🏽</h1>", unsafe_allow_html=True)
     st.markdown("<h1 class='header-name'>Welcome to Manasa's Portfolio</h1>", unsafe_allow_html=True)
 
     # Dynamic Animation for Keywords
     keywords = get_keywords()
     placeholder = st.empty()
-    colors = ["#666600", "#273e06", "#666600", "#273e06", "#666600", "#273e06"]  # List of colors
+    colors = ["#666600", "#273e06", "#666600", "#273e06", "#666600", "#273e06"]
 
-    for _ in range(3):  # Repeat animation thrice
+    for _ in range(3):
         for word, color in zip(keywords, colors):
             placeholder.markdown(
                 f"<h2 class='dynamic-keyword' style='color: {color};'>{word}</h2>",
@@ -130,12 +129,12 @@ if tabs == "About Me":
             )
             time.sleep(1)
 
-    # Add vertical space after animation
+    # Add vertical space
     st.markdown("<div style='margin-top: 40px;'></div>", unsafe_allow_html=True)
 
-    # About Me Text (Full width)
+    # About Me Text
     st.markdown("""
-        <div style="text-align: justify; font-size: 16px; color: #000000; line-height: 1.8; padding: 0; margin: 0;">
+        <div style="text-align: justify; font-size: 16px; color: #101010; line-height: 1.8; padding: 0; margin: 0;">
         
         I am Manasa, but you can call me Minn—or perhaps, a Data Scientist!  
         My mission is to transform raw data into actionable insights that drive success and innovation for businesses.
@@ -158,7 +157,7 @@ if tabs == "About Me":
         </div>
     """, unsafe_allow_html=True)
 
-    # Add images one by one
+    # Add images
     st.image(profile_image, caption="You know me now! 🤠 -minn", width=600)
 
 elif tabs == "Portfolio":
@@ -172,4 +171,3 @@ elif tabs == "Why hire me":
 
 elif tabs == "Contact":
     contact_me()
-

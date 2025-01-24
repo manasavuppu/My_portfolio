@@ -8,7 +8,7 @@ def show_interests():
             .header-main {
                 font-size: 50px;
                 font-weight: bold;
-                color: #000000; /* Black text */
+                color: #101010; /* Black text */
                 text-align: center;
                 margin-bottom: 30px;
             }
