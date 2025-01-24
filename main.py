@@ -1,4 +1,13 @@
 import streamlit as st
+
+# Configure the page
+st.set_page_config(
+    page_title="Manasa Vuppu - Portfolio",
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
+
+
 from PIL import Image
 import time
 from portfolio import show_portfolio
@@ -6,8 +15,6 @@ from interests import show_interests
 from whyhireme import show_cv
 from contact import contact_me
 
-# Configure the page
-st.set_page_config(page_title="Manasa Vuppu - Portfolio", layout="wide", initial_sidebar_state="expanded")
 
 # Apply custom CSS for background, sidebar, and text styling
 st.markdown("""
