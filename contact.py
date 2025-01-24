@@ -27,7 +27,7 @@ def contact_me():
             padding: 30px;
             border-radius: 20px;
             text-align: center;
-            color: black;
+            color: #101010;
             max-width: 400px;
             width: 100%;
             box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
@@ -67,7 +67,7 @@ def contact_me():
             <p>University of North Carolina at Charlotte👩🏼‍🎓</p>
             <p>Charlotte, North Carolina 📍</p>
             <p>Email: <a href="mailto:minnuv97@gmail.com" style="color: white; text-decoration: underline;">minnuv97@gmail.com</a></p>
-            <p>GitHub: <a href="https://github.com/manasavuppu" target="_blank" style="color: white; text-decoration: underline;">github.com/manasavuppu</a></p>
+            <p>GitHub: <a href="https://github.com/manasavuppu" target="_blank" style="color: #101010; text-decoration: underline;">github.com/manasavuppu</a></p>
             <a href="{get_resume_link()}" download="Manasa_Vuppu_CV.pdf" class="contact-btn">Download CV</a>
         </div>
     </div>

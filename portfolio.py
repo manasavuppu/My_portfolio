@@ -6,7 +6,7 @@ def show_portfolio():
     st.markdown("<h1 class='header-main'>My Portfolio 📂</h1>", unsafe_allow_html=True)
 
     # Upcoming Projects Section
-    st.markdown("<h2 style='text-align: center; color: #000000;'>Upcoming Projects 🚀</h2>", unsafe_allow_html=True)
+    st.markdown("<h2 style='text-align: center; color: #101010;'>Upcoming Projects 🚀</h2>", unsafe_allow_html=True)
 
     # Define upcoming projects
     upcoming_projects = [
@@ -21,12 +21,12 @@ def show_portfolio():
         st.markdown(f"""
             <div style="margin-bottom: 20px; padding: 15px; background-color: #ffe078; border-radius: 10px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);">
                 <h3 style="color: #023047; margin-bottom: 5px; text-align: center">{project['title']}</h3>
-                <p style="color: #000000; font-size: 16px; margin: 0; text-align: center;">{project['description']}</p>
+                <p style="color: #101010; font-size: 16px; margin: 0; text-align: center;">{project['description']}</p>
             </div>
         """, unsafe_allow_html=True)
 
     # Completed Projects Section
-    st.markdown("<h2 style='text-align: center; color: #000000;'>Completed Projects ✅</h2>", unsafe_allow_html=True)
+    st.markdown("<h2 style='text-align: center; color: #101010;'>Completed Projects ✅</h2>", unsafe_allow_html=True)
 
     # Define completed projects
     projects = [
@@ -93,7 +93,7 @@ def show_portfolio():
             .portfolio-item-title {
                 font-size: 18px;
                 font-weight: bold;
-                color: #000000;
+                color: #101010;
                 margin-bottom: 10px;
             }
             .thinking-cloud {
@@ -102,7 +102,7 @@ def show_portfolio():
                 left: 50%;
                 transform: translateX(-50%);
                 background-color: #ffffff;
-                color: #000000;
+                color: #101010;
                 padding: 10px;
                 border-radius: 15px;
                 font-size: 14px;

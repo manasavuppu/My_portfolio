@@ -43,7 +43,7 @@ st.markdown("""
             text-align: center;
         }
         .header-name {
-            color: #808000 !important; /* Olive for name */
+            color: #273e06 !important; /* Olive for name */
             font-size: 50px;
             font-weight: bold;
             text-align: center;
