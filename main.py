@@ -116,8 +116,8 @@ else:
 
 # Tabs logic
 if tabs == "About Me":
-    st.markdown("<h1>Hello there! 👋🏽</h1>", unsafe_allow_html=True)
-    st.markdown("<h1>Welcome to Manasa's Portfolio</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center;'>Hello there! 👋🏽</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center;'>Welcome to Manasa's Portfolio</h1>", unsafe_allow_html=True)
 
     # Dynamic Animation for Keywords
     keywords = ["Machine Learning", "Artificial Intelligence", "Data Visualization", "Business Intelligence", "Deep Learning", "Generative AI"]
