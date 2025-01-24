@@ -16,7 +16,9 @@ st.set_page_config(
 # Apply custom CSS for styling and responsive fixes
 st.markdown("""
     <style>
-        .stApp {
+        /* Set universal text color to #101010 */
+        html, body, .stApp {
+            color: #101010 !important;
             background-color: #fdfd96; /* Brighter yellow */
         }
         section[data-testid="stSidebar"] {
@@ -37,6 +39,7 @@ st.markdown("""
         }
         .sidebar-toggle:hover {
             background-color: #023047;
+            color: #101010;
         }
         .nav-bar {
             display: flex;
@@ -58,6 +61,16 @@ st.markdown("""
         .nav-bar-item:hover {
             background-color: #fb8500;
             color: #101010;
+        }
+        /* Ensure text remains #101010 on smaller screens */
+        @media (max-width: 768px) {
+            html, body, .stApp {
+                color: #101010 !important;
+            }
+            .nav-bar-item {
+                background-color: #ffe078 !important;
+                color: #101010 !important;
+            }
         }
     </style>
 """, unsafe_allow_html=True)
