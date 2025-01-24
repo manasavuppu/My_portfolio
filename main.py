@@ -31,6 +31,12 @@ st.markdown("""
             text-align: left;
             margin-bottom: 20px;
         }
+        /* Styling for "Navigate to:" label */
+        div[data-testid="stMarkdownContainer"] p {
+            font-size: 22px; /* Increased font size for "Navigate to:" */
+            color: #101010 !important; /* Ensure dark gray text */
+            font-weight: bold; /* Make it bold */
+        }
         /* Styling for the radio buttons ("Navigate to") */
         div[data-baseweb="radio"] > div {
             background-color: transparent !important; /* Ensure transparent background */
@@ -101,6 +107,9 @@ st.markdown("""
         @media (max-width: 768px) {
             html, body, .stApp {
                 color: #101010 !important;
+            }
+            div[data-testid="stMarkdownContainer"] p {
+                font-size: 20px; /* Slightly smaller font size for "Navigate to:" on mobile */
             }
             div[data-baseweb="radio"] > div {
                 color: #101010 !important; /* Ensure dark gray text on mobile */
