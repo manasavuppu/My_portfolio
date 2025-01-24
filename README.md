@@ -1,5 +1,9 @@
 # 🌟 **Manasa Vuppu's Portfolio** 🌟
 
+🚀 Check out the live portfolio here: 
+[VSM Portfolio](https://vsm-portfolio.streamlit.app/)
+
+
 Welcome to my **Portfolio Project**! This repository showcases my journey, skills, and aspirations as a data scientist, blending creativity and technical expertise. It serves as a reflection of my passion for **Machine Learning**, **Generative AI**, **Data Visualization**, and much more.
 
 ## 🎯 **Purpose of This Project**
