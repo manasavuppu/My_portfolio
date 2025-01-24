@@ -146,22 +146,6 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Streamlit stateful buttons for navigation
-col1, col2, col3, col4, col5 = st.columns(5)
-
-if col1.button("About Me"):
-    tabs = "About Me"
-elif col2.button("Portfolio"):
-    tabs = "Portfolio"
-elif col3.button("Interests"):
-    tabs = "Interests"
-elif col4.button("Why hire me"):
-    tabs = "Why hire me"
-elif col5.button("Contact"):
-    tabs = "Contact"
-else:
-    tabs = "About Me"  # Default tab
-
 # Tabs Logic
 if tabs == "About Me":
     st.markdown("<h1 class='header-main'>Hello there! 👋🏽</h1>", unsafe_allow_html=True)
