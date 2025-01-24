@@ -16,7 +16,7 @@ st.set_page_config(
 # Apply custom CSS for styling and responsive fixes
 st.markdown("""
     <style>
-        /* Set universal text color to #101010 */
+        /* Ensure universal text color is dark gray */
         html, body, .stApp {
             color: #101010 !important;
             background-color: #fdfd96; /* Brighter yellow */
@@ -50,7 +50,7 @@ st.markdown("""
         .nav-bar-item {
             padding: 10px 20px;
             background-color: #ffe078;
-            color: #101010 !important;
+            color: #101010 !important; /* Ensure text stays dark gray */
             border: 2px solid #023047;
             border-radius: 5px;
             text-align: center;
@@ -60,16 +60,20 @@ st.markdown("""
         }
         .nav-bar-item:hover {
             background-color: #fb8500;
-            color: #101010;
+            color: #101010 !important;
         }
-        /* Ensure text remains #101010 on smaller screens */
+        .nav-bar-item:active {
+            background-color: #023047;
+            color: #101010 !important;
+        }
+        /* Mobile-specific fixes */
         @media (max-width: 768px) {
             html, body, .stApp {
                 color: #101010 !important;
             }
             .nav-bar-item {
                 background-color: #ffe078 !important;
-                color: #101010 !important;
+                color: #101010 !important; /* Ensure text is dark gray on mobile */
             }
         }
     </style>
