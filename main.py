@@ -120,31 +120,31 @@ if show_sidebar:
 else:
     # If sidebar is hidden, use dropdown for navigation
     # Create a horizontal navigation bar with Streamlit buttons
-st.markdown("""
-    <style>
-        .nav-bar {
-            display: flex;
-            justify-content: center;
-            gap: 15px; /* Spacing between items */
-            margin-top: 20px;
-        }
-        .nav-bar-item {
-            padding: 10px 20px;
-            background-color: #ffe078;
-            color: #101010;
-            border: 2px solid #023047;
-            border-radius: 5px;
-            text-align: center;
-            font-weight: bold;
-            font-size: 16px;
-            cursor: pointer;
-        }
-        .nav-bar-item:hover {
-            background-color: #fb8500; /* Hover color */
-            color: white; /* Hover text color */
-        }
-    </style>
-""", unsafe_allow_html=True)
+    st.markdown("""
+        <style>
+            .nav-bar {
+                display: flex;
+                justify-content: center;
+                gap: 15px; /* Spacing between items */
+                margin-top: 20px;
+            }
+            .nav-bar-item {
+                padding: 10px 20px;
+                background-color: #ffe078;
+                color: #101010;
+                border: 2px solid #023047;
+                border-radius: 5px;
+                text-align: center;
+                font-weight: bold;
+                font-size: 16px;
+                cursor: pointer;
+            }
+            .nav-bar-item:hover {
+                background-color: #fb8500; /* Hover color */
+                color: white; /* Hover text color */
+            }
+        </style>
+    """, unsafe_allow_html=True)
 
 # Tabs Logic
 if tabs == "About Me":
