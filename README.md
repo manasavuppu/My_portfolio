@@ -35,10 +35,10 @@ The purpose of this project is to create a dynamic and visually engaging **portf
 
 ## 🛠️ **Technologies Used**
 
-- **Python** 🐍
-- **Streamlit** 🎈
-- **Pillow (PIL)** 🖼️
-- **Custom CSS** 🎨
+- **Python** 
+- **Streamlit** 
+- **Pillow (PIL)** 
+- **Custom CSS** 
 
 ---
 
