@@ -13,101 +13,81 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Apply custom CSS for collapsibility, responsive design, and text color fix
+# Apply custom CSS for styling and responsive fixes
 st.markdown("""
     <style>
-        /* Background color for the app */
         .stApp {
             background-color: #fdfd96; /* Brighter yellow */
-            color: #101010 !important; /* Ensure text remains black */
         }
-        /* Sidebar styling */
         section[data-testid="stSidebar"] {
-            background-color: #ffe078; /* Light yellow background */
-            padding: 20px; /* Add padding for spacing */
+            background-color: #ffe078; /* Sidebar background color */
         }
-        section[data-testid="stSidebar"] h1, 
-        section[data-testid="stSidebar"] h2, 
-        section[data-testid="stSidebar"] h3, 
-        section[data-testid="stSidebar"] h4, 
-        section[data-testid="stSidebar"] h5, 
-        section[data-testid="stSidebar"] p, 
-        section[data-testid="stSidebar"] label {
-            color: #023047 !important; /* Dark blue for sidebar text */
+        .sidebar-toggle {
+            position: fixed;
+            top: 20px;
+            left: 10px;
+            background-color: #fb8500;
+            color: white;
+            font-size: 18px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 1000;
         }
-        /* Header styling */
-        .header-main {
-            color: #101010 !important; /* Black for Hello there! */
-            font-size: 50px;
-            font-weight: bold;
+        .sidebar-toggle:hover {
+            background-color: #023047;
+        }
+        .nav-bar {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .nav-bar-item {
+            padding: 10px 20px;
+            background-color: #ffe078;
+            color: #101010 !important;
+            border: 2px solid #023047;
+            border-radius: 5px;
             text-align: center;
-        }
-        .header-name {
-            color: #273e06 !important; /* Olive for name */
-            font-size: 50px;
             font-weight: bold;
-            text-align: center;
+            font-size: 16px;
+            cursor: pointer;
         }
-        .dynamic-keyword {
-            color: #fb8500 !important; /* Orange for animated keywords */
-            font-style: italic;
-            font-size: 36px;
-            text-align: center;
-            font-weight: bold;
-        }
-        /* About Me Text Styling */
-        .about-me-text {
-            text-align: justify;
-            font-size: 20px;
-            color: #101010 !important; /* Ensure black text */
-            line-height: 1.8;
-        }
-        /* Responsive fix for mobile screens */
-        @media (max-width: 768px) {
-            section[data-testid="stSidebar"] {
-                display: none; /* Hide sidebar on small screens */
-            }
-            html, body, .stApp {
-                color: #101010 !important; /* Ensure text stays black on mobile */
-            }
+        .nav-bar-item:hover {
+            background-color: #fb8500;
+            color: white;
         }
     </style>
 """, unsafe_allow_html=True)
 
-# Cache functions to optimize image loading
-@st.cache_data
-def load_image(image_path):
-    """Load and return an image using Pillow."""
-    return Image.open(image_path)
+# Sidebar toggle logic
+if "sidebar_visible" not in st.session_state:
+    st.session_state.sidebar_visible = True
 
-@st.cache_data
-def get_keywords():
-    """Return a list of animated keywords."""
-    return [
-        "Machine Learning", 
-        "Artificial Intelligence",
-        "Data Visualization", 
-        "Business Intelligence", 
-        "Deep Learning",
-        "Generative AI"
-    ]
+def toggle_sidebar():
+    st.session_state.sidebar_visible = not st.session_state.sidebar_visible
 
-# Load images
-profile_image = load_image("me.jpeg")
+# Toggle button
+toggle_button = st.markdown(
+    f"""
+    <button class="sidebar-toggle" onclick="window.location.reload();">{'→' if st.session_state.sidebar_visible else '←'}</button>
+    """,
+    unsafe_allow_html=True,
+)
 
-# Collapsible Sidebar for Desktop
-show_sidebar = st.checkbox("Show Sidebar", value=True)
-
-if show_sidebar:
+# Show sidebar conditionally
+if st.session_state.sidebar_visible:
     with st.sidebar:
         st.markdown("""
             <style>
                 .sidebar-title {
                     font-size: 26px; /* Increase font size */
-                    font-weight: bold; /* Make it bold */
-                    color: #023047; /* Set dark blue color */
-                    text-align: left; /* Left align the text */
-                    margin-bottom: 20px; /* Add spacing below */
+                    font-weight: bold;
+                    color: #023047;
+                    text-align: left;
+                    margin-bottom: 20px;
                 }
             </style>
         """, unsafe_allow_html=True)
@@ -118,59 +98,42 @@ if show_sidebar:
             index=0
         )
 else:
-    # If sidebar is hidden, use dropdown for navigation
-    # Create a horizontal navigation bar with Streamlit buttons
-    st.markdown("""
-        <style>
-            .nav-bar {
-                display: flex;
-                justify-content: center;
-                gap: 15px; /* Spacing between items */
-                margin-top: 20px;
-            }
-            .nav-bar-item {
-                padding: 10px 20px;
-                background-color: #ffe078;
-                color: #101010;
-                border: 2px solid #023047;
-                border-radius: 5px;
-                text-align: center;
-                font-weight: bold;
-                font-size: 16px;
-                cursor: pointer;
-            }
-            .nav-bar-item:hover {
-                background-color: #fb8500; /* Hover color */
-                color: white; /* Hover text color */
-            }
-        </style>
-    """, unsafe_allow_html=True)
+    # Horizontal navigation bar
+    st.markdown("<div class='nav-bar'>", unsafe_allow_html=True)
+    col1, col2, col3, col4, col5 = st.columns(5)
+    if col1.button("About Me"):
+        tabs = "About Me"
+    elif col2.button("Portfolio"):
+        tabs = "Portfolio"
+    elif col3.button("Interests"):
+        tabs = "Interests"
+    elif col4.button("Why hire me"):
+        tabs = "Why hire me"
+    elif col5.button("Contact"):
+        tabs = "Contact"
+    else:
+        tabs = "About Me"  # Default
 
-# Tabs Logic
+# Tabs logic
 if tabs == "About Me":
-    st.markdown("<h1 class='header-main'>Hello there! 👋🏽</h1>", unsafe_allow_html=True)
-    st.markdown("<h1 class='header-name'>Welcome to Manasa's Portfolio</h1>", unsafe_allow_html=True)
+    st.markdown("<h1>Hello there! 👋🏽</h1>", unsafe_allow_html=True)
+    st.markdown("<h1>Welcome to Manasa's Portfolio</h1>", unsafe_allow_html=True)
 
     # Dynamic Animation for Keywords
-    keywords = get_keywords()
+    keywords = ["Machine Learning", "Artificial Intelligence", "Data Visualization", "Business Intelligence", "Deep Learning", "Generative AI"]
     placeholder = st.empty()
     colors = ["#666600", "#273e06", "#666600", "#273e06", "#666600", "#273e06"]
 
     for _ in range(3):
         for word, color in zip(keywords, colors):
             placeholder.markdown(
-                f"<h2 class='dynamic-keyword' style='color: {color};'>{word}</h2>",
+                f"<h2 style='color: {color}; text-align: center;'>{word}</h2>",
                 unsafe_allow_html=True
             )
             time.sleep(1)
 
-    # Add vertical space
-    st.markdown("<div style='margin-top: 40px;'></div>", unsafe_allow_html=True)
-
-    # About Me Text
     st.markdown("""
-        <div style="text-align: justify; font-size: 16px; color: #101010 !important; line-height: 1.8; padding: 0; margin: 0;">
-        
+        <div style="text-align: justify; font-size: 16px; color: #101010; line-height: 1.8; margin-top: 20px;">
         I am Manasa, but you can call me Minn—or perhaps, a Data Scientist!  
         My mission is to transform raw data into actionable insights that drive success and innovation for businesses.
 
@@ -191,9 +154,7 @@ if tabs == "About Me":
         Take your time exploring my portfolio, and thank you for visiting!  
         </div>
     """, unsafe_allow_html=True)
-
-    # Add images
-    st.image(profile_image, caption="You know me now! 🤠 -minn", width=600)
+    st.image("me.jpeg", caption="You know me now! 🤠 -minn", width=600)
 
 elif tabs == "Portfolio":
     show_portfolio()
