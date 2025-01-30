@@ -183,26 +183,28 @@ if tabs == "About Me":
             )
             time.sleep(1)
 
-    st.markdown("""<
-        div style="text-align: justify; font-size: 16px; color: #101010; line-height: 1.8; margin-top: 20px;"> 
-                
-            I am Manasa, but you can call me Minn—or perhaps, a Data Scientist! My mission is to transform raw data into actionable insights that drive success and innovation for businesses.
+    st.markdown("""
+        <div style="text-align: justify; font-size: 16px; color: #101010; line-height: 1.8; margin-top: 20px;">
+        
+        
+        I am Manasa, but you can call me Minn—or perhaps, a Data Scientist!  
+        My mission is to transform raw data into actionable insights that drive success and innovation for businesses.
 
-            With a strong foundation in Computer Science Engineering, Marketing, and Entrepreneurship, I thrive on embracing calculated risks and finding innovative solutions.
+        With a strong foundation in Computer Science Engineering, Marketing, and Entrepreneurship, I thrive on embracing calculated risks and finding innovative solutions.
 
-            The elegance of mathematics captivates me, empowering my strengths in statistical analysis and data-driven decision-making. 
-            I am a creative thinker with a deep curiosity for understanding consumer behavior, coupled with a passion for growing in the technical domain.
+        The elegance of mathematics captivates me, empowering my strengths in statistical analysis and data-driven decision-making. 
+        I am a creative thinker with a deep curiosity for understanding consumer behavior, coupled with a passion for growing in the technical domain.
 
-            Leveraging the power of open-source AI tools and Python, I create impactful solutions that address real-world challenges and contribute to the community. 
-            My aspirations lie in gaining hands-on experience through industrial projects that challenge me, inspire me, and encourage me to grow continuously.
+        Leveraging the power of open-source AI tools and Python, I create impactful solutions that address real-world challenges and contribute to the community. 
+        My aspirations lie in gaining hands-on experience through industrial projects that challenge me, inspire me, and encourage me to grow continuously.
 
-            Every day, I immerse myself in the exciting worlds of machine learning, deep learning, and business intelligence. 
-            Staying updated on industry breakthroughs while honing my skills is my way of preparing for a better tomorrow.
+        Every day, I immerse myself in the exciting worlds of machine learning, deep learning, and business intelligence. 
+        Staying updated on industry breakthroughs while honing my skills is my way of preparing for a better tomorrow.
 
-            This is just a glimpse of who I am—there’s so much more to share! I’d love to connect and learn about you too. 
-            Perhaps we can catch up over a virtual coffee on Zoom sometime? ☕️
+        This is just a glimpse of who I am—there’s so much more to share! I’d love to connect and learn about you too. 
+        Perhaps we can catch up over a virtual coffee on Zoom sometime? ☕️
 
-            Take your time exploring my portfolio, and thank you for visiting!  
+        Take your time exploring my portfolio, and thank you for visiting!  
         </div>
     """, unsafe_allow_html=True)
     st.image("me.jpeg", caption="You know me now! 🤠 -minn", width=600)

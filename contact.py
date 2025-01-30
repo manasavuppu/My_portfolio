@@ -67,6 +67,7 @@ def contact_me():
             <p>University of North Carolina at Charlotte👩🏼‍🎓</p>
             <p>Charlotte, North Carolina 📍</p>
             <p>Email: <a href="mailto:minnuv97@gmail.com" style="color: #101010; text-decoration: underline;">minnuv97@gmail.com</a></p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/mvuppu/" target="_blank" style="color: #101010; text-decoration: underline;">www.linkedin.com/in/mvuppu/</a></p>
             <p>GitHub: <a href="https://github.com/manasavuppu" target="_blank" style="color: #101010; text-decoration: underline;">github.com/manasavuppu</a></p>
             <a href="{get_resume_link()}" download="Manasa_Vuppu_CV.pdf" class="contact-btn">Download CV</a>
         </div>
