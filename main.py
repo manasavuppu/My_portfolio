@@ -184,9 +184,7 @@ if tabs == "About Me":
             time.sleep(1)
 
     st.markdown("""
-        <div style="text-align: justify; font-size: 16px; color: #101010; line-height: 1.8; margin-top: 20px;">
-        I am Manasa, but you can call me Minn—or perhaps, a Data Scientist!  
-        My mission is to transform raw data into actionable insights that drive success and innovation for businesses.
+        <div style="text-align: justify; font-size: 16px; color: #101010; line-height: 1.8; margin-top: 20px;"> I am Manasa, but you can call me Minn—or perhaps, a Data Scientist! My mission is to transform raw data into actionable insights that drive success and innovation for businesses.
 
         With a strong foundation in Computer Science Engineering, Marketing, and Entrepreneurship, I thrive on embracing calculated risks and finding innovative solutions.
 
